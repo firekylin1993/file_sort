@@ -17,7 +17,6 @@ COPY . /workdir
 
 RUN mkdir /records
 COPY ./records /records
-
 COPY --from=goBuilder /go/bin/* .
 
 EXPOSE 8181
