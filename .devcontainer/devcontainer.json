@@ -4,7 +4,7 @@
 	"name": "file-sort",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workdir",
 
 	// Configure tool-specific properties.
 	"customizations": {

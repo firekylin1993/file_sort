@@ -8,9 +8,18 @@ RUN go build -mod=vendor -ldflags "-X main.Version=$VERSION_TAG" -o /go/bin/ ./.
 # set TimeZone as Asia/Shanghai
 # set Local as zh-hans
 FROM debian:stable
-EXPOSE 8181
-COPY --from=goBuilder /go/bin/* .
-VOLUME /records
+
+
+RUN mkdir /workdir
+
+WORKDIR /workdir
+COPY . /workdir
+
+RUN mkdir /records
 COPY ./records /records
 
-ENTRYPOINT ["./file_sort"]
+COPY --from=goBuilder /go/bin/* .
+
+EXPOSE 8181
+
+ENTRYPOINT ["/workdir/file_sort"]
