@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    links:
+      - mysql
+    ports:
+      - 18080:8080
+  mysql:
+    image: mysql:5.6
+    restart: unless-stopped
+    ports:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    ports:
+      - 13305:8080

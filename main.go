@@ -1,13 +1,17 @@
 package main
 
 import (
-	"golang.org/x/net/context"
+	"context"
+	"file_sort/db"
+	"file_sort/handle"
+	"file_sort/kits"
+	"file_sort/model"
 	"io/ioutil"
-	"mytest/file_sort/db"
-	"mytest/file_sort/handle"
-	"mytest/file_sort/kits"
-	"mytest/file_sort/model"
+	"log"
+	"net/http"
 	"os"
+
+	"github.com/arl/statsviz"
 )
 
 var depStr = "./records"
@@ -62,6 +66,6 @@ func main() {
 	//关闭所有writer资源
 	//handle.CloseSource()
 
-	//statsviz.RegisterDefault()
-	//log.Println(http.ListenAndServe(":8080", nil))
+	statsviz.RegisterDefault()
+	log.Println(http.ListenAndServe(":8080", nil))
 }

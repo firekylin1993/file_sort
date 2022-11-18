@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/tidwall/gjson"
 	"io"
-	"mytest/file_sort/model"
+	"file_sort/model"
 	"os"
 	"path/filepath"
 	"time"

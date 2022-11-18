@@ -11,7 +11,7 @@ import (
 )
 
 func NewMysql() (*gorm.DB, error) {
-	db, err := gorm.Open(mysql.Open("mysql-dsn"), &gorm.Config{
+	db, err := gorm.Open(mysql.Open("test:test@tcp(mysql:3306)/test?charset=utf8&parseTime=True&loc=Local"), &gorm.Config{
 		Logger: logger.New(
 			log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer（日志输出的目标，前缀和日志包含的内容——译者注）
 			logger.Config{
